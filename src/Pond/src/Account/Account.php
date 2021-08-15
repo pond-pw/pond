@@ -10,15 +10,23 @@ namespace Pond\Account;
  */
 final class Account
 {
+    private Id $id;
+
     private Credentials $credentials;
 
-    public function __construct(Credentials $credentials)
+    public function __construct(Id $id, Credentials $credentials)
     {
+        $this->id = $id;
         $this->credentials = $credentials;
     }
 
     public function getCredentials() : Credentials
     {
         return $this->credentials;
+    }
+
+    public function getId() : Id
+    {
+        return $this->id;
     }
 }

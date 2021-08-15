@@ -6,5 +6,5 @@ namespace Pond;
 
 interface CommandInterface
 {
-    public function dataIsValid() : bool;
+
 }
