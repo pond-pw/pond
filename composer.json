@@ -52,7 +52,7 @@
         "mezzio/mezzio-laminasrouter": "^3.0.1",
         "mezzio/mezzio-laminasviewrenderer": "^2.2",
         "ramsey/uuid": "^4.2",
-      "ext-sqlite3": "*"
+        "ext-sqlite3": "*"
     },
     "require-dev": {
         "laminas/laminas-development-mode": "^3.3.0",

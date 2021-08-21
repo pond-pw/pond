@@ -13,22 +13,19 @@ class Storage
 
     public function save(Account $account) : void
     {
-        $sql = <<<EOD
-            INSERT INTO accounts 
-                (id,username,password) 
-            VALUES(:id,:username,:password);
-        EOD;
+        $sql = "INSERT INTO accounts (id,username,password) VALUES(:id,:username,:password)";
+
 
         $statement = $this->db->prepare($sql);
         $statement->bindValue(':id', $account->getId());
         $statement->bindValue(':username', $account->getCredentials()->getUsername());
         $statement->bindValue(':password', $account->getCredentials()->getPassword());
 
-        $sucessfullyAddded = $this->db->exec($statement);
-        if($sucessfullyAddded) {
+        $successfullyAdded = $this->db->exec($statement);
+        if($successfullyAdded) {
             return;
         }
-
+        CouldNotSaveAccount::throwFromErrorCode($this->db->lastErrorCode(), $this->db->lastErrorMsg());
     }
 
 

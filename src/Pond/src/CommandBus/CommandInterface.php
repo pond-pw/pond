@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pond;
+namespace Pond\CommandBus;
 
 interface CommandInterface
 {
